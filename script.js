@@ -1,3 +1,8 @@
-const a = 1;
-const b = 'Наша ветка lesson01';
-console.log('Hello world!');
+let title,
+    screens,
+    screenPrice,
+    rollback,
+    fullPrice,
+    adaptive;
+    
+alert ('Любой текст');
