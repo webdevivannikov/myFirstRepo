@@ -10,14 +10,30 @@ const appData = {
     screens: [],
     screenPrice: 0,
     adaptive: true,
+    countBtn: {},
+    resetBtn: {},
+    plusBtn: {},
+    otherItemsPersent: {},
+    otherItemsNumber: {},
+    inputRange: {},
+    spanRangeValue: {},
+    inputs: [],
     isNumber: function (num) {
         return !isNaN(parseFloat(num)) && isFinite(num);
     },
     asking: function() {
-        do {
-            appData.title = prompt('Как называется ваш проект?','Название проекта');
-        } while(appData.isNumber(appData.title));
-        
+        appData.title = document.getElementsByTagName('h1')[0].innerText;
+        appData.countBtn = document.getElementsByClassName('handler_btn')[0]; 
+        appData.resetBtn = document.getElementsByClassName('handler_btn')[1];
+        appData.plusBtn = document.querySelector('.screen-btn'); 
+        appData.otherItemsPersent = document.querySelectorAll('div.other-items.percent');
+        appData.otherItemsNumber = document.querySelectorAll('div.other-items.number');
+        appData.inputRange = document.querySelector('.rollback > div > input');
+        appData.spanRangeValue = document.querySelector('.rollback > div > span');
+        for (let i = 0 ; i < document.getElementsByClassName('total-input').length; i++){
+            appData.inputs[i] = document.getElementsByClassName('total-input')[i];
+        }
+        let screen = document.querySelectorAll('.screen');
 
         for (let i = 0; i < 2; i++) {
             
