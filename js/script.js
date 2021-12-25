@@ -135,10 +135,6 @@ const appData = {
             appData.screenPrice += +screen.price;
             appData.countInputs += +screen.count;
         }
-        for (let key of appData.screens) {
-            // += +screen.price;
-        }
-
         for (let key in appData.servicesNumber){
             appData.servicePricesNumber += +appData.servicesNumber[key];
         }
