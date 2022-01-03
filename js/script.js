@@ -72,7 +72,7 @@ const appData = {
         otherItemsNumber.forEach( item => {
             const check = item.querySelector('input[type=checkbox]');
             check.disabled = false;
-            if (check.checkd)
+            if (check.checked)
                 check.checked = false;
         });
     },
