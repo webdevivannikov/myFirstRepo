@@ -41,16 +41,39 @@ const appData = {
         screens.forEach( (screen, index) => {
             const select = screen.querySelector('select');
             const input = screen.querySelector('input');
+            input.value = '';
+            select.value = '';
             if (index == 0) {   
                 select.disabled = false;
                 input.disabled = false;
-                input.value = '';
-                select.value = '';
             }
             else {
-                select.remove();
-                input.remove();
+                screen.remove();
             }
+        });
+        plusBtn.disabled = false;
+        total.value = 0;
+        totalCountOther.value = 0;
+        fullTotalCount.value = 0;
+        totalCountRollback.value = 0;
+        totalCount.value = 0;
+        inputRange.value = 0;
+        
+        inputRange.disabled = false;
+        spanRangeValue.textContent = 0 + '%';
+
+        otherItemsPersent.forEach( item => {
+
+            const check = item.querySelector('input[type=checkbox]');
+            check.disabled = false;
+            if (check.checked)
+                check.checked = false;
+        });
+        otherItemsNumber.forEach( item => {
+            const check = item.querySelector('input[type=checkbox]');
+            check.disabled = false;
+            if (check.checked)
+                check.checked = false;
         });
     },
     addTitle: function() {
@@ -80,6 +103,18 @@ const appData = {
                 });
                 countBtn.style = "display: none;";
                 resetBtn.style = "display: block;";
+                plusBtn.disabled = true;
+                inputRange.disabled = true;
+                
+                console.log(otherItemsPersent);
+                otherItemsPersent.forEach( item => {
+                    const check = item.querySelector('input[type=checkbox]');
+                    check.disabled = true;
+                });
+                otherItemsNumber.forEach( item => {
+                    const check = item.querySelector('input[type=checkbox]');
+                    check.disabled = true;
+                });
                 this.start();
             }
             
